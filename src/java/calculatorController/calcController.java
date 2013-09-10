@@ -26,7 +26,7 @@ public class calcController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-//        CHALLENGE #1
+//   //     CHALLENGE #1
 //        response.setContentType("text/html;charset=UTF-8");
 //        PrintWriter out = response.getWriter();
 //        String l = request.getParameter("length");
@@ -77,7 +77,7 @@ public class calcController extends HttpServlet {
 //        request.setAttribute("Answer", answer);
 //        
 //        RequestDispatcher view =
-//                request.getRequestDispatcher(RESULT_PAGE);
+//                request.getRequestDispatcher("index.html");
 //        view.forward(request, response);
 //        
     }
@@ -95,7 +95,41 @@ public class calcController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
+      response.setContentType("text/html");
+        String l = request.getParameter("length");
+        String w = request.getParameter("width");
+        String r = request.getParameter("radius");
+        String triA = request.getParameter("triA");
+        String triB = request.getParameter("triB");
+        
+        double answer = 0;
+        
+       String ResultPage = null;
+        try {
+            if(l!=null && w!=null){
+            rectangleModel rm = new rectangleModel();
+            answer = rm.getArea(l, w);
+            ResultPage = "AllCalc.jsp";
+           
+        } else if (r!=null){
+            circleModel cm = new circleModel();
+            answer = cm.getArea(r);
+            ResultPage = "AllCalc.jsp";
+            
+        } else if (triA!=null && triB!=null){
+            triangleModel tm = new triangleModel();
+            answer = tm.getHypotenuse(triA, triB);
+            ResultPage = "AllCalc.jsp";
+        } 
+        } finally {
+            
+        }
+        
+        request.setAttribute("Answer", answer);
+        
+        RequestDispatcher view =
+                request.getRequestDispatcher(ResultPage);
+        view.forward(request, response);
     }
 
     /**

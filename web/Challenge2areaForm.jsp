@@ -29,7 +29,7 @@ if (x==null || y==null || x=="" || y=="" || x<0 || y<0 || isNaN(x)==true || isNa
          <h1 align="center">Calculate Area of a Rectangle/Square</h1>
         <form id="formArea" action="something.do" name="formArea" method="POST" onsubmit="return validateForm()">
             
-            length: <input type="number" id="length" name="length" placeholder="" value='<% if (request.getParameter("width")!= null){out.print(request.getParameter("length"));}%>'><br />
+            length: <input type="number" id="length" name="length" placeholder="" value='<% if (request.getParameter("length")!= null){out.print(request.getParameter("length"));}%>'><br />
             width: <input type="number" id="width" name="width" placeholder="" value='<% if (request.getParameter("width")!= null){out.print(request.getParameter("width"));} %>'>
          </br></br>
          <input type="submit" value="Calculate">

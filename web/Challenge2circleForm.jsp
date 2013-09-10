@@ -25,8 +25,7 @@ if (x==null || x=="" || x<0 || isNaN(x)==true)
     <body>
         <h1 align="center">Calculate Area of a Circle</h1>
          <form id="formCircle" action="something.do" name="formCircle" method="POST" onsubmit="return validateForm()">
-            
-            radius: <input type="number" id="radius" name="radius"><br />
+            radius: <input type="number" id="radius" name="radius" value='<% if(request.getParameter("radius")!= null){out.print(request.getParameter("radius"));}%>'><br />
             
          </br></br>
          <input type="submit" value="Calculate">

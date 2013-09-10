@@ -27,8 +27,8 @@ if (x==null || y==null || x=="" || y=="" || x<0 || y<0 || isNaN(x)==true || isNa
         <h1 align="center">Find the Hypotenuse of a Triangle</h1>
         <form id="formTriangle" action="something.do" name="formTriangle" method="POST" onsubmit="return validateForm()">
             
-            Side A:  <input type="number" id="triA" name="triA"><br />
-            Side B:  <input type="number" id="triB" name="triB">
+            Side A:  <input type="number" id="triA" name="triA" value='<% if(request.getParameter("triA")!= null){out.print(request.getParameter("triA"));}%>'><br />
+            Side B:  <input type="number" id="triB" name="triB" value='<% if(request.getParameter("triB")!= null){out.print(request.getParameter("triB"));}%>'>
          </br></br>
          <input type="submit" value="Calculate">
          </br></br>
